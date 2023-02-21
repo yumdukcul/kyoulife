@@ -1,0 +1,155 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.register .steps {
+    display: flex;
+    align-items: center;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.register .steps .step_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.register .steps .step_wrapper div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register .steps .step_wrapper label {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.register .steps .step_wrapper::after {
+    display: inline-block;
+    width: 35px;
+    border: 1px solid #ddd;
+    content: '';
+    margin: 0 20px 33.2px 20px;
+}
+
+.register .steps .step_wrapper:last-child::after {
+    content: none;
+}
+
+.register .steps .step_wrapper .icon {
+    font-size: 26px;
+    line-height: 26px;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 1px 1px 7px #c9c9c9;
+}
+
+.register .steps .step_wrapper .active .icon {
+    background: #525fe1;
+    color: white;
+}
+
+.register .steps .step_wrapper .done .icon {
+    background: #8993f2;
+    color: white;
+}
+
+.register .steps .step_wrapper .icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.register .agree {
+    width: 540px;
+    padding: 45px 35px;
+    margin-bottom: 40px;
+}
+
+.register .agree .agreeText {
+    margin-top: 25px;
+}
+
+.register .agree .agreeText::before {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #ddd;
+    content: '';
+    margin-bottom: 25px;
+}
+
+.register .agree .agreeText:last-child::before {
+    content: none;
+}
+
+.register button {
+    width: 97px;
+    height: 38px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register .form {
+    width: 540px;
+    padding: 35px;
+    margin-bottom: 40px;
+}
+
+.register .form h3::after {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #ddd;
+    content: '';
+    margin: 25px 0;
+}
+
+.register .form .input_box {
+    margin-bottom: 25px;
+}
+
+.register .form .input_box:last-child {
+    margin-bottom: 0;
+}
+
+.register .form .input_box label {
+    margin: 10px 0;
+    min-width: 100px;
+}
+
+.register .button_wrapper button {
+    margin-right: 20px;
+}
+
+.register .complete {
+    width: 540px;
+    padding: 80px 80px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register .complete .main_text {
+    font-size: 24px;
+}
+
+.register .complete .main_text span.name {
+    font-weight: bold;
+}
+
+.register .complete .text {
+    margin-top: 10px;
+    color: #777;
+}

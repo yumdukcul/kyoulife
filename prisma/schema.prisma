@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  idx                             Int          @id @default(autoincrement())
+  username                        String       @unique(map: "username") @db.VarChar(20)
+  password                        String?      @db.VarChar(255)
+  name                            String?      @db.VarChar(10)
+  studentId                       String?      @unique(map: "studentId") @db.VarChar(20)
+  email                           String?      @db.VarChar(50)
+  nickname                        String?      @unique(map: "nickname") @db.VarChar(10)
+  asLev                           Int?         @default(0)
+  asCat                           String?      @default("") @db.VarChar(20)
+  asDep                           String?      @default("") @db.VarChar(20)
+  usercol                         String?      @db.VarChar(45)
+  regDate                         DateTime?    @default(now()) @db.DateTime(0)
+  docslist_docslist_managerTouser docslist[]   @relation("docslist_managerTouser")
+  docslist_docslist_writerTouser  docslist[]   @relation("docslist_writerTouser")
+  ledgerlist                      ledgerlist[]
+}
+
+model acctingsyscategory {
+  idx          Int    @id @default(autoincrement())
+  orderNum     Int
+  categoryId   String @unique(map: "categoryId") @db.VarChar(20)
+  categoryName String @db.VarChar(20)
+}
+
+model acctingsyslist {
+  idx            Int    @id @default(autoincrement())
+  departmentId   String @unique(map: "departmentId") @db.VarChar(20)
+  departmentName String @db.VarChar(20)
+  category       String @db.VarChar(20)
+  orderNum       Int
+}
+
+model ledgerlist {
+  idx            Int       @id @default(autoincrement())
+  department     String    @db.VarChar(20)
+  txDate         DateTime  @db.Date
+  eventName      String    @db.VarChar(30)
+  txCategory     String    @db.VarChar(5)
+  receiptNum     String    @db.VarChar(10)
+  bankbook       String    @db.VarChar(30)
+  amount         Int
+  paymentMethod  String    @db.VarChar(10)
+  receiptDetails String    @db.Text
+  note           String    @db.VarChar(255)
+  state          String    @db.VarChar(10)
+  datetime       DateTime  @default(now()) @db.DateTime(0)
+  writer         String?   @db.VarChar(20)
+  modifyDate     DateTime? @db.DateTime(0)
+  user           user?     @relation(fields: [writer], references: [username], onUpdate: SetNull, map: "username")
+
+  @@index([writer], map: "ledger_writer")
+}
+
+model docslist {
+  idx                         Int       @id @default(autoincrement())
+  department                  String    @db.VarChar(20)
+  docType                     String    @db.VarChar(5)
+  eventName                   String    @db.VarChar(30)
+  startDate                   DateTime  @db.Date
+  endDate                     DateTime  @db.Date
+  eventPlace                  String    @db.VarChar(20)
+  personnel                   String    @db.VarChar(20)
+  purpose                     String    @db.VarChar(255)
+  content                     String    @db.Text
+  state                       String    @db.VarChar(10)
+  datetime                    DateTime  @default(now()) @db.DateTime(0)
+  writer                      String?   @db.VarChar(20)
+  submitDate                  DateTime? @db.DateTime(0)
+  manager                     String?   @db.VarChar(20)
+  user_docslist_managerTouser user?     @relation("docslist_managerTouser", fields: [manager], references: [username], onUpdate: SetNull, map: "docs_manager")
+  user_docslist_writerTouser  user?     @relation("docslist_writerTouser", fields: [writer], references: [username], onUpdate: SetNull, map: "docs_writer")
+
+  @@index([manager], map: "docs_manager")
+  @@index([writer], map: "docs_writer")
+}

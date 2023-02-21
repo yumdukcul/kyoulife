@@ -1,0 +1,89 @@
+@media print {
+    .header {
+        display: none !important;
+    }
+}
+
+.header {
+    padding: 60px 6rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 950px) {
+    .header {
+        padding: 20px 6rem;
+    }
+}
+
+.userWrapper {
+    height: 40px;
+}
+
+.userMenu {
+    position: relative;
+    background: white;
+    border: 1px solid #eee;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 4px 4px 10px -5px #c9c9c9;
+}
+
+.userMenu li {
+    list-style: none;
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.userMenu li:hover {
+    background: #f7f7f7;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+}
+
+.userIconWrapper {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.userIcon {
+    color: #f7f7f7;
+    width: 30px;
+    height: 30px;
+}
+
+.dropdownIcon {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close {
+    visibility: hidden;
+    opacity: 0;
+}

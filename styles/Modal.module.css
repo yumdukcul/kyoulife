@@ -1,0 +1,164 @@
+.modal_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.modal_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px 30px;
+    width: 800px;
+    max-height: 900px;
+    overflow: auto;
+}
+
+.modal_container::-webkit-scrollbar {
+    display: none;
+}
+
+.order_info,
+.login_info,
+.deposit_info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.order_info {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+}
+
+.login_info,
+.deposit_info,
+.coupon,
+.orderId {
+    margin-bottom: 30px;
+}
+
+.coupon span,
+.orderId span {
+    display: block;
+    white-space: pre-wrap;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_wrapper div *:first-child {
+    margin-left: 0;
+}
+
+.button_wrapper div * {
+    margin-left: 10px;
+}
+
+.button_wrapper button {
+    height: 40px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.button_wrapper input {
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #999;
+}
+
+.close {
+    width: 60px;
+    background: #aaa;
+}
+
+.close:hover {
+    background: #999;
+}
+
+.reject {
+    width: 100px;
+    background: #ff7a7a;
+}
+
+.reject:hover {
+    background: #f76363;
+}
+
+.apply {
+    width: 100px;
+    background: #4785ff;
+}
+
+.apply:hover {
+    background: #387afe;
+}
+
+.orders {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.table_wrapper {
+    overflow: auto;
+    white-space: nowrap;
+    max-height: 400px;
+}
+
+.table_wrapper th,
+.table_wrapper td {
+    padding: 0 15px;
+}
+
+.table {
+    width: 100%;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.table th {
+    height: 50px;
+}
+
+.table tbody tr,
+.table tbody tr input[type='checkbox'] {
+    cursor: pointer;
+}
+
+.table tbody tr:hover {
+    background: #eee;
+}
+
+.table td {
+    min-width: 30px;
+    height: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.table tr:last-child td {
+    border: 0;
+}
